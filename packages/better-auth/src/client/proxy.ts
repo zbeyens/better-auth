@@ -65,6 +65,7 @@ export function createDynamicPathProxy<T extends Record<string, any>>(
 				const routePath =
 					"/" +
 					path
+						.filter((segment) => typeof segment === "string")
 						.map((segment) =>
 							segment.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`),
 						)
